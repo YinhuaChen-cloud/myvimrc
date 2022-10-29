@@ -44,11 +44,18 @@ nnoremap te :tabe<CR>
 nnoremap tn :+tabnext<CR>
 nnoremap tp :-tabnext<CR>
 nnoremap tc :tabc<CR>
+nnoremap tm :tabmove 
+nnoremap gn :tn<CR>
+nnoremap gp :tp<CR>
+" cscope database update
+nnoremap cs :cs kill 0<CR>:!cd ${NPC_HOME}/.. && cscope -R -b<CR>:cs add ${NPC_HOME}/../cscope.out<CR>:!cd ${NPC_HOME}/.. && ctags -R <CR>:set tags=tags;/<CR>
+
 nnoremap <C-_> :s/^/\/\//<CR>
 vnoremap <C-_> :s/^/\/\//<CR>
 nnoremap ; :s/\/\///<CR>
 vnoremap ; :s/\/\///<CR>
-" set tags=tags;/
+nnoremap ts :tabs<CR>
+set tags=tags;/
 set foldmethod=manual
 set csre
 
@@ -300,7 +307,7 @@ set hidden
 " This setting makes search case-insensitive when all characters in the string
 " being searched are lowercase. However, the search becomes case-sensitive if
 " it contains any capital letters. This makes searching more convenient.
-set ignorecase
+set smartcase
 
 " Enable searching as you type, rather than waiting till you press enter.
 set incsearch
